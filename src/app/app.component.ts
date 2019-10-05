@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { Article } from './article/article.model';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,7 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  articles: Article[];
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
     console.log(`Adding article title: ${title.value} and link: ${link.value}`);
