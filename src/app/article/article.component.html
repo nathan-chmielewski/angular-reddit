@@ -28,7 +28,7 @@
                 downvote
             </a>
         </li>
-        <li *ngIf="article.role === 'administrator'" class="item">
+        <li *ngIf="article.role == 'administrator'" class="item">
             <a href (click)="flagArticle()">
                 <i class="flag icon"></i>
                 flag

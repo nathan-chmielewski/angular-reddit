@@ -10,6 +10,7 @@ import { FlagService } from '../flag.service';
 export class ArticleComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'row';
   @Input() article: Article;
+  @Input() index: number;
 
   constructor(private flagService: FlagService) {
     // article property is populated by the @Input
@@ -26,8 +27,8 @@ export class ArticleComponent implements OnInit {
 }
 
   flagArticle(): boolean {
-    console.log('flag Article method called');
-    this.flagService.flagArticle(this.article);
+    console.log('In Article.Component flagArticle()');
+    this.flagService.flagArticle(this.index);
     return false;
   }
 

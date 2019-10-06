@@ -8,7 +8,8 @@ export class FlagService {
 
   constructor() { }
 
-  flagArticle(article: Article): void {
+  flagArticle(index: number): void {
     console.log('In FlagService.flagArticle()');
+    console.log(index);
    }
 }
