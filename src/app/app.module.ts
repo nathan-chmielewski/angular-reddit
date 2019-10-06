@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
+import { FlagService } from './flag.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { ArticleComponent } from './article/article.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [FlagService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
