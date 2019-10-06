@@ -28,7 +28,7 @@
                 downvote
             </a>
         </li>
-        <li class="item">
+        <li *ngIf="article.role === 'administrator'" class="item">
             <a>
                 <i class="flag icon"></i>
                 flag

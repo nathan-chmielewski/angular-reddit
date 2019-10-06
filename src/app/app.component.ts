@@ -11,10 +11,11 @@ export class AppComponent {
 
   constructor() {
     this.articles = [
-      new Article('Angular', 'http::/angular.io', 10, 'user'),
+      new Article('Angular', 'http://angular.io', 10, 'user'),
       new Article('Fullstack', 'http://fullstack.io', 5, 'user'),
       new Article('ng book', 'http://ng-book.com/2', 1, 'user'),
-      new Article('Hacker News', 'http://news.ycombinator.com', 15)
+      new Article('Hacker News', 'http://news.ycombinator.com',
+                  15, 'administrator')
   ];
   }
 
