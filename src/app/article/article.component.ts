@@ -19,10 +19,15 @@ export class ArticleComponent implements OnInit {
     return false;
 }
 
-voteDown(): boolean {
+  voteDown(): boolean {
     this.article.voteDown();
     return false;
 }
+
+  flagArticle(): boolean {
+    console.log('flag Article method called');
+    return false;
+  }
 
   ngOnInit() {
   }
