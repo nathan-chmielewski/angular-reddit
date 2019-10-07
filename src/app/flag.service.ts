@@ -5,11 +5,17 @@ import { Article } from './article/article.model';
   providedIn: 'root'
 })
 export class FlagService {
+  lowestVotesTotal: number;
 
-  constructor() { }
+  constructor() {
+    this.lowestVotesTotal = 0;
+   }
 
-  flagArticle(index: number): void {
+  flagArticle(article: Article): void {
     console.log('In FlagService.flagArticle()');
-    console.log(index);
+    console.log(article.title);
+    console.log(article.votes);
+    article.votes = this.lowestVotesTotal - 1;
+    this.lowestVotesTotal--;
    }
 }

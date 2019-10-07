@@ -11,11 +11,11 @@ export class AppComponent {
 
   constructor() {
     this.articles = [
-      new Article('Angular', 'http://angular.io', 10, 'user'),
-      new Article('Fullstack', 'http://fullstack.io', 5, 'user'),
-      new Article('ng book', 'http://ng-book.com/2', 1, 'user'),
+      new Article('Angular', 'http://angular.io', 0, 'user'),
+      new Article('Fullstack', 'http://fullstack.io', 0, 'user'),
+      new Article('ng book', 'http://ng-book.com/2', 0, 'user'),
       new Article('Hacker News', 'http://news.ycombinator.com',
-                  15, 'administrator')
+                  0, 'administrator')
   ];
   }
 
@@ -26,11 +26,6 @@ export class AppComponent {
     link.value = '';
     return false;
   }
-
-  // flagArticle() {
-  //   console.log('flag article in app.component');
-  //   return false;
-  // }
 
   sortedArticles(): Article[] {
     return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
