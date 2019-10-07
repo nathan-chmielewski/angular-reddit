@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Article } from './article/article.model';
+import { FlagService } from './flag.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { Article } from './article/article.model';
 export class AppComponent {
   articles: Article[];
 
-  constructor() {
+  constructor(private flagService: FlagService) {
     this.articles = [
       new Article('Angular', 'http://angular.io', 0, 'user'),
       new Article('Fullstack', 'http://fullstack.io', 0, 'user'),
@@ -28,6 +29,21 @@ export class AppComponent {
   }
 
   sortedArticles(): Article[] {
-    return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
+    this.articles.sort((a: Article, b: Article) => {
+      if (a.isFlagged === true) {
+        this.flagService.flagArticle(a);
+        return 1;
+      }
+      if (b.isFlagged === true) {
+        this.flagService.flagArticle(b);
+        return -1;
+      }
+      if (b.votes > a.votes) { return 1; }
+      if (b.votes < a.votes) { return -1; }
+      return 0;
+    }
+    );
+    // b.votes - a.votes);
+    return this.articles;
   }
 }

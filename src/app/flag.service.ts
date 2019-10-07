@@ -12,10 +12,15 @@ export class FlagService {
    }
 
   flagArticle(article: Article): void {
-    console.log('In FlagService.flagArticle()');
-    console.log(article.title);
-    console.log(article.votes);
-    article.votes = this.lowestVotesTotal - 1;
-    this.lowestVotesTotal--;
+    if (!article.isFlagged) {
+      article.votes = this.lowestVotesTotal - 1;
+      this.lowestVotesTotal--;
+      // console.log(this.lowestVotesTotal);
+      article.isFlagged = true;
+    }
+    // } else if (article.votes !== this.lowestVotesTotal) {
+    //   article.votes = this.lowestVotesTotal - 1;
+    //   this.lowestVotesTotal--;
+    // }
    }
 }

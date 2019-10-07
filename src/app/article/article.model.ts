@@ -1,6 +1,7 @@
 export class Article {
     votes: number;
     title: string;
+    isFlagged: boolean;
     link: string;
     role: string;
 
@@ -9,13 +10,20 @@ export class Article {
         this.link = link;
         this.votes = votes || 0;
         this.role = role || 'administrator';
+        this.isFlagged = false;
     }
 
     voteUp() {
+        // if (!this.isFlagged) {
+        //     this.votes += 1;
+        // }
         this.votes += 1;
     }
 
     voteDown() {
+        // if (!this.isFlagged) {
+        //     this.votes -= 1;
+        // }
         this.votes -= 1;
     }
 

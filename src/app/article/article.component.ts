@@ -1,6 +1,7 @@
-import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, RootRenderer } from '@angular/core';
 import { Article } from './article.model';
 import { FlagService } from '../flag.service';
+import { componentFactoryName } from '@angular/compiler';
 
 @Component({
   selector: 'app-article',
@@ -30,7 +31,6 @@ export class ArticleComponent implements OnInit {
 }
 
   flagArticle(): boolean {
-    console.log('In Article.Component flagArticle()');
     this.flagService.flagArticle(this.article);
     return false;
   }
