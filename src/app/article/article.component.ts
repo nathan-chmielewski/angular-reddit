@@ -18,20 +18,19 @@ export class ArticleComponent implements OnInit {
   }
 
   voteUp(): boolean {
+    // if (!this.article.isFlagged) {
     this.article.voteUp();
-    if (this.article.votes <= this.flagService.lowestVotedArticle.votes
-      && this.article.isFlagged !== true) {
-    this.flagService.lowestVotedArticle = this.article;
-    }
+    // }
     return false;
 }
 
   voteDown(): boolean {
+    // if (!this.article.isFlagged) {
     this.article.voteDown();
-    if (this.article.votes <= this.flagService.lowestVotedArticle.votes
-      && this.article.isFlagged !== true) {
-      this.flagService.lowestVotedArticle = this.article;
-    }
+      // if (this.article.votes < this.flagService.lowestNonFlaggedArticle.votes) {
+      //   this.flagService.lowestNonFlaggedArticle = this.article;
+      // }
+    // }
     return false;
 }
 
