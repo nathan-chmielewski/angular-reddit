@@ -14,16 +14,10 @@ export class Article {
     }
 
     voteUp() {
-        // if (!this.isFlagged) {
-        //     this.votes += 1;
-        // }
         this.votes += 1;
     }
 
     voteDown() {
-        // if (!this.isFlagged) {
-        //     this.votes -= 1;
-        // }
         this.votes -= 1;
     }
 

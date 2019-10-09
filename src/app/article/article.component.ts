@@ -13,25 +13,30 @@ export class ArticleComponent implements OnInit {
   @Input() article: Article;
   @Input() index: number;
 
-  constructor(private flagService: FlagService) {
+  constructor(public flagService: FlagService) {
     // article property is populated by the @Input
   }
 
   voteUp(): boolean {
     this.article.voteUp();
+    if (this.article.votes <= this.flagService.lowestVotedArticle.votes
+      && this.article.isFlagged !== true) {
+    this.flagService.lowestVotedArticle = this.article;
+    }
     return false;
 }
 
   voteDown(): boolean {
     this.article.voteDown();
-    if (this.flagService.lowestVotesTotal > this.article.votes) {
-      this.flagService.lowestVotesTotal = this.article.votes;
+    if (this.article.votes <= this.flagService.lowestVotedArticle.votes
+      && this.article.isFlagged !== true) {
+      this.flagService.lowestVotedArticle = this.article;
     }
     return false;
 }
 
   flagArticle(): boolean {
-    this.flagService.flagArticle(this.article);
+    this.flagService.flagArticle(this.article, this.index);
     return false;
   }
 

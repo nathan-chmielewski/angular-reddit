@@ -10,14 +10,9 @@ import { FlagService } from './flag.service';
 export class AppComponent {
   articles: Article[];
 
-  constructor(private flagService: FlagService) {
-    this.articles = [
-      new Article('Angular', 'http://angular.io', 0, 'user'),
-      new Article('Fullstack', 'http://fullstack.io', 0, 'user'),
-      new Article('ng book', 'http://ng-book.com/2', 0, 'user'),
-      new Article('Hacker News', 'http://news.ycombinator.com',
-                  0, 'administrator')
-  ];
+  constructor(public flagService: FlagService) {
+    this.articles = this.flagService.getArticles();
+
   }
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
@@ -31,11 +26,9 @@ export class AppComponent {
   sortedArticles(): Article[] {
     this.articles.sort((a: Article, b: Article) => {
       if (a.isFlagged === true) {
-        this.flagService.flagArticle(a);
         return 1;
       }
       if (b.isFlagged === true) {
-        this.flagService.flagArticle(b);
         return -1;
       }
       if (b.votes > a.votes) { return 1; }

@@ -30,7 +30,7 @@
         </li>
         <li *ngIf="article.role == 'administrator'" class="item">
             <a href (click)="flagArticle()">
-                <i class="flag icon"></i>
+                <i class="red flag icon" *ngIf="article.isFlagged == true"></i>
                 flag
             </a>
         </li>
