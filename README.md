@@ -1,5 +1,7 @@
 # angular-reddit
 
+github URL: https://github.com/nathan-chmielewski/angular-reddit
+
 # user-stories
 * See user-stories.txt for user stories for all scenarios from homework instructions.
 
